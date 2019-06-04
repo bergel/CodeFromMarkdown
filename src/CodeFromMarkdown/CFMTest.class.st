@@ -96,13 +96,20 @@ MMatrixfdsfd class>>newFromArrays: arrays
 
 
 ```Smalltalk
-MMatrixfdsfd class>>newRows: numRows columns: numColumns
+MMatrixfdsfd>>newRows: numRows columns: numColumns
 	"Create a matrix with a given shape"
 	^ self basicNew
 		initializeRows: numRows columns: numColumns;
 		yourself
 ```
 '
+]
+
+{ #category : #running }
+CFMTest >> setUp [
+	"Hooks that subclasses may override to define the fixture of test."
+	(Smalltalk includesKey: #MMatrixfdsfd) 
+		ifTrue: [ (Smalltalk at: #MMatrixfdsfd) removeFromSystem ]
 ]
 
 { #category : #tests }
@@ -142,9 +149,24 @@ CFMTest >> testOnLargeExample [
 		yourself'.
 
 	self assert: c extractedCodes third code equals: 
-'MMatrixfdsfd class>>newRows: numRows columns: numColumns
+'MMatrixfdsfd>>newRows: numRows columns: numColumns
 	"Create a matrix with a given shape"
 	^ self basicNew
 		initializeRows: numRows columns: numColumns;
 		yourself'
+]
+
+{ #category : #tests }
+CFMTest >> testOnLargeExample2 [
+
+	| c cls |
+	c := CodeFromMarkdown new.
+	c processText: self exampleLarge.
+	
+	self deny: (Smalltalk includesKey: #MMatrixfdsfd).
+	c install.
+	self assert: (Smalltalk includesKey: #MMatrixfdsfd).
+	cls := Smalltalk at: #MMatrixfdsfd.
+	self assert: (cls class >> #newFromArrays:) isCompiledMethod.
+	self assert: (cls >> #newRows:columns:) isCompiledMethod.
 ]

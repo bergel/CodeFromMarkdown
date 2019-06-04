@@ -18,6 +18,11 @@ CodeFromMarkdown >> initialize [
 	extractedCodes := OrderedCollection new
 ]
 
+{ #category : #actions }
+CodeFromMarkdown >> install [
+	extractedCodes do: #install
+]
+
 { #category : #accessing }
 CodeFromMarkdown >> numberOfExtractedCode [
 	^ extractedCodes size
