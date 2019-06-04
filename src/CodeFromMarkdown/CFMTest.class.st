@@ -170,3 +170,21 @@ CFMTest >> testOnLargeExample2 [
 	self assert: (cls class >> #newFromArrays:) isCompiledMethod.
 	self assert: (cls >> #newRows:columns:) isCompiledMethod.
 ]
+
+{ #category : #tests }
+CFMTest >> testWithSpace [
+
+	| c |
+	c := CodeFromMarkdown new.
+	c processText: 
+'
+hello world
+```Smalltalk
+BMPReadWriter>>+ matrixOrVector
+	^ 5 + 6
+```
+'.
+	
+	c install.
+	self assert: (BMPReadWriter new + 6) equals: 11
+]
