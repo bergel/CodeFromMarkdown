@@ -72,10 +72,10 @@ We can now write the Pharo class `MMatrix` which will use our C-library. Note th
 In a new package called `Matrix`, we define the class:
 
 ```Smalltalk
-Object subclass: #MMatrix
+Object subclass: #MMatrixfdsfd
 	instanceVariableNames: ''nbRows nbColumns array''
 	classVariableNames: ''''
-	package: ''Matrix''
+	package: ''TMPTMP''
 ```
 
 The two first variables describe the shape of the matrix while the variable `array` will refer to an array containing the actual values of the matrix. This array will have to be accessible from Pharo.
@@ -83,7 +83,7 @@ The two first variables describe the shape of the matrix while the variable `arr
 On the class side of the class `MMatrix` we define a number of useful methods to create matrices. You need to switch the class browser to the class mode to define class methods. The method `newFromArrays:` creates a matrix from a collection of arrays:
 
 ```Smalltalk
-MMatrix class>>newFromArrays: arrays
+MMatrixfdsfd class>>newFromArrays: arrays
 	"
 	MMatrix newFromArrays: #(#(1 2 3) #(4 5 6))
 	MMatrix newFromArrays: #(#(1 2 3))
@@ -96,7 +96,7 @@ MMatrix class>>newFromArrays: arrays
 
 
 ```Smalltalk
-MMatrix class>>newRows: numRows columns: numColumns
+MMatrixfdsfd class>>newRows: numRows columns: numColumns
 	"Create a matrix with a given shape"
 	^ self basicNew
 		initializeRows: numRows columns: numColumns;
@@ -123,4 +123,28 @@ CFMTest >> testOnLargeExample [
 	self assert: c numberOfExtractedCode equals: 3.
 	self assert: c extractedCodes size equals: 3.
 	self assert: c extractedCodes notEmpty.
+	
+	self assert: c extractedCodes first code equals: 
+'Object subclass: #MMatrixfdsfd
+	instanceVariableNames: ''nbRows nbColumns array''
+	classVariableNames: ''''
+	package: ''TMPTMP'''.
+	
+	self assert: c extractedCodes second code equals: 
+'MMatrixfdsfd class>>newFromArrays: arrays
+	"
+	MMatrix newFromArrays: #(#(1 2 3) #(4 5 6))
+	MMatrix newFromArrays: #(#(1 2 3))
+	"
+	^ self basicNew
+		initializeRows: arrays size columns: arrays first size;
+		fromContents: (arrays flatCollect: #yourself);
+		yourself'.
+
+	self assert: c extractedCodes third code equals: 
+'MMatrixfdsfd class>>newRows: numRows columns: numColumns
+	"Create a matrix with a given shape"
+	^ self basicNew
+		initializeRows: numRows columns: numColumns;
+		yourself'
 ]
