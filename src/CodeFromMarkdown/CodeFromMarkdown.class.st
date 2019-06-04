@@ -28,7 +28,15 @@ CodeFromMarkdown >> numberOfExtractedCode [
 	^ extractedCodes size
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #public }
+CodeFromMarkdown >> processFileName: aFilename [
+	"
+	self new processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/07-MatrixLibrary/07-Matrix.markdown'
+	"
+	self processText: aFilename asFileReference contents
+]
+
+{ #category : #public }
 CodeFromMarkdown >> processText: aText [
 
 	| isInCode currentCode code |
