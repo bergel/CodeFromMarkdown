@@ -31,7 +31,7 @@ CodeFromMarkdown >> numberOfExtractedCode [
 { #category : #public }
 CodeFromMarkdown >> processFileName: aFilename [
 	"
-	self new processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/07-MatrixLibrary/07-Matrix.markdown'
+	(self new processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/07-MatrixLibrary/07-Matrix.markdown') install
 	"
 	self processText: aFilename asFileReference contents
 ]
@@ -41,12 +41,13 @@ CodeFromMarkdown >> processText: aText [
 
 	| isInCode currentCode code |
 	isInCode := false.
-	currentCode := OrderedCollection new.
-	aText lines do: [ :l |
-		((l = '```') and: [ isInCode ]) ifTrue: [ isInCode := false. code := CFMCode new code: (String cr join: currentCode). extractedCodes add: code ].	
+	currentCode := OrderedCollection new. 
+	aText lines doWithIndex: [ :l :lineNumber |
+"self haltIf: [ l beginsWith: 'MMatrix>>add: aMatrix']."
+		((l = '```') and: [ isInCode ]) ifTrue: [ isInCode := false. code := CFMCode new code: (String cr join: currentCode); lineNumber: lineNumber; yourself. extractedCodes add: code ].	
 		isInCode ifTrue: [ 
 			currentCode add: l
 		].
-		(l = '```Smalltalk') ifTrue: [ isInCode := true. currentCode := OrderedCollection new].
+		(l = '```Smalltalk') ifTrue: [ isInCode := true. currentCode := OrderedCollection new ].
 	 ]
 ]

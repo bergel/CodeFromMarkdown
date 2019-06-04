@@ -2,7 +2,8 @@ Class {
 	#name : #CFMCode,
 	#superclass : #Object,
 	#instVars : [
-		'code'
+		'code',
+		'lineNumber'
 	],
 	#category : #CodeFromMarkdown
 }
@@ -46,6 +47,16 @@ CFMCode >> install [
 	OpalCompiler new
 		source: self code;
 		evaluate
+]
+
+{ #category : #accessing }
+CFMCode >> lineNumber [
+	^ lineNumber
+]
+
+{ #category : #accessing }
+CFMCode >> lineNumber: anObject [
+	lineNumber := anObject
 ]
 
 { #category : #accessing }
