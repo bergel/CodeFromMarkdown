@@ -27,7 +27,7 @@ CFMCode >> install [
 	('* subclass: #*' match: self lines first)
 		ifTrue: [ [OpalCompiler new
 				source: self code;
-				evaluate.] on: Exception do: [ :ex | ex inspect. self inspect ].
+				evaluate.] on: SyntaxErrorNotification do: [ :ex | ex inspect. self inspect ].
 			^ self ].
 
 	"If is a method definition"
@@ -39,7 +39,8 @@ CFMCode >> install [
 				ifFalse: [ Smalltalk at: t first asSymbol ].
 			signature := t second.
 			[classReceiver
-				compile: (String cr join: {signature} , self lines allButFirst)] on: Exception do: [ :ex | ex inspect. self inspect ] ].
+				compile: (String cr join: {signature} , self lines allButFirst)] on: SyntaxErrorNotification do: [ :ex | ex inspect. self inspect ].
+			^ self ].
 
 	"simple code snippet -- We execute it in that case"
 	OpalCompiler new
