@@ -39,6 +39,7 @@ CFMCode >> install [
 				ifTrue: [ (Smalltalk at: (t first substrings: ' ') first asSymbol) class ]
 				ifFalse: [ Smalltalk at: t first asSymbol ].
 			classReceiver ifNil: [ self error: 'Wrong class name' ].
+			(t size = 1) ifTrue: [ "Could happen if there is no symbol, e.g., empty template". ^ self ].
 			signature := t second.
 			[classReceiver
 				compile: (String cr join: {signature} , self lines allButFirst)] on: SyntaxErrorNotification do: [ :ex | ex inspect. self inspect ].
