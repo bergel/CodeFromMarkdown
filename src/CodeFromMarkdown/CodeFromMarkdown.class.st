@@ -31,7 +31,8 @@ CodeFromMarkdown >> numberOfExtractedCode [
 { #category : #public }
 CodeFromMarkdown >> processFileName: aFilename [
 	"
-	(self new processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/07-MatrixLibrary/07-Matrix.markdown') install
+	(self new processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/07-MatrixLibrary/07-Matrix.markdown') install.
+	(self new processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/08-MatrixNN/08-MatrixNN.markdown') install.
 	"
 	self processText: aFilename asFileReference contents
 ]
