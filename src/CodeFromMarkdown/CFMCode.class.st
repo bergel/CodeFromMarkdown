@@ -43,6 +43,9 @@ CFMCode >> install [
 			signature := t second.
 			[classReceiver
 				compile: (String cr join: {signature} , self lines allButFirst)] on: SyntaxErrorNotification do: [ :ex | ex inspect. self inspect ].
+			
+			((classReceiver inheritsFrom: TestCase) and: [ signature beginsWith: 'test' ])
+				ifTrue: [ classReceiver debug: signature ].
 			^ self ].
 
 	"simple code snippet -- We execute it in that case"
