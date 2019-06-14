@@ -19,6 +19,14 @@ CFMCode >> code: aString [
 	code := aString
 ]
 
+{ #category : #'as yet unclassified' }
+CFMCode >> gtInspectorContentsIn: composite [
+	<gtInspectorPresentationOrder: 5>
+	composite text
+			title: 'Code';
+			display: [ self code ]
+]
+
 { #category : #execution }
 CFMCode >> install [
 	"class definition"
