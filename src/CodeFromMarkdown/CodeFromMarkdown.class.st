@@ -16,8 +16,7 @@ CodeFromMarkdown >> extractedCodes [
 CodeFromMarkdown >> geneticAlgo [
 	<script: 'self new geneticAlgo'>
 	
-	self removePackageNameIfExist: 'Matrix'.
-	self removePackageNameIfExist: 'NeuralNetwork-Matrix'.
+	self removePackageNameIfExist: 'GeneticAlgorithm'.
 	
 	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/10-GeneticAlgorithm/10-GeneticAlgorithm.markdown') install.
 
