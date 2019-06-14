@@ -68,6 +68,7 @@ CodeFromMarkdown >> processText: aText [
 	aText lines doWithIndex: [ :l :lineNumber |
 "self haltIf: [ l beginsWith: 'MMatrix>>add: aMatrix']."
 		((l = '```') and: [ isInCode ]) ifTrue: [ isInCode := false. code := CFMCode new code: (String cr join: currentCode); lineNumber: lineNumber; yourself. extractedCodes add: code ].	
+		(l = '...' and: [ isInCode ]) ifTrue: [ currentCode := extractedCodes last code lines asOrderedCollection ].
 		isInCode ifTrue: [ 
 			currentCode add: l
 		].
