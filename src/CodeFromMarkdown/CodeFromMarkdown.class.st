@@ -12,6 +12,17 @@ CodeFromMarkdown >> extractedCodes [
 	^ extractedCodes
 ]
 
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> geneticAlgo [
+	<script: 'self new geneticAlgo'>
+	
+	self removePackageNameIfExist: 'Matrix'.
+	self removePackageNameIfExist: 'NeuralNetwork-Matrix'.
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/10-GeneticAlgorithm/10-GeneticAlgorithm.markdown') install.
+
+]
+
 { #category : #initialization }
 CodeFromMarkdown >> initialize [
 	super initialize.
@@ -21,6 +32,18 @@ CodeFromMarkdown >> initialize [
 { #category : #actions }
 CodeFromMarkdown >> install [
 	extractedCodes do: #install
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> matrixAndMatrixLib [
+	<script: 'self new matrixAndMatrixLib'>
+	
+	self removePackageNameIfExist: 'Matrix'.
+	self removePackageNameIfExist: 'NeuralNetwork-Matrix'.
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/07-MatrixLibrary/07-Matrix.markdown') install.
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/08-MatrixNN/08-MatrixNN.markdown') install.
+	
 ]
 
 { #category : #accessing }
@@ -51,4 +74,11 @@ CodeFromMarkdown >> processText: aText [
 		].
 		(l = '```Smalltalk') ifTrue: [ isInCode := true. currentCode := OrderedCollection new ].
 	 ]
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> removePackageNameIfExist: aPackageName [
+	| p |
+	p := RPackageOrganizer default packageNamed: aPackageName ifAbsent: [ ^ self ].
+	p removeFromSystem 
 ]
