@@ -40,7 +40,7 @@ CodeFromMarkdown >> matrixAndMatrixLib [
 	self removePackageNameIfExist: 'Matrix'.
 	self removePackageNameIfExist: 'NeuralNetwork-Matrix'.
 	
-	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/07-MatrixLibrary/07-Matrix.markdown') install.
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/07-MatrixLibrary/07-MatrixLibrary.markdown') install.
 	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/08-MatrixNN/08-MatrixNN.markdown') install.
 	
 ]
