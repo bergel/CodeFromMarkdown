@@ -15,7 +15,7 @@ CodeToMarkdown >> addClass: aClass [
 { #category : #private }
 CodeToMarkdown >> encloseToMarkdown: code on: stream [
 	stream nextPutAll: '```Smalltalk'; cr.
-	stream nextPutAll: code.
+	stream nextPutAll: code; cr.
 	stream nextPutAll: '```'; cr; cr.
 ]
 
@@ -46,7 +46,10 @@ CodeToMarkdown >> writeMarkdown: aFileName [
 	c addClass: GARobotMap.
 	c writeMarkdown: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/13-Robot/13-Robot.markdown'
 	"
-	self writeMarkdownOn: aFileName asFileReference writeStream
+	| w |
+	w := aFileName asFileReference writeStream.
+	self writeMarkdownOn: w.
+	w close
 ]
 
 { #category : #'public - generating' }
