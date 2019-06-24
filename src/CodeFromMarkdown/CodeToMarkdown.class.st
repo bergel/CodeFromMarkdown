@@ -33,7 +33,7 @@ CodeToMarkdown >> writeClass: cls ToMarkdownOn: stream [
 { #category : #initialization }
 CodeToMarkdown >> writeCompiledMethod: cm ToMarkdownOn: stream [
 	| source |
-	source := cm theClass name, '>>', cm sourceCode.
+	source := cm methodClass name, '>>', cm sourceCode.
 	self encloseToMarkdown: source on: stream
 ]
 
