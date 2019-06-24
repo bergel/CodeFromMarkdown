@@ -7,12 +7,12 @@ Class {
 	#category : #CodeFromMarkdown
 }
 
-{ #category : #initialization }
+{ #category : #'public - adding' }
 CodeToMarkdown >> addClass: aClass [
 	classesToExtract add: aClass 
 ]
 
-{ #category : #initialization }
+{ #category : #private }
 CodeToMarkdown >> encloseToMarkdown: code on: stream [
 	stream nextPutAll: '```Smalltalk'; cr.
 	stream nextPutAll: code.
@@ -25,25 +25,31 @@ CodeToMarkdown >> initialize [
 	classesToExtract := OrderedCollection new
 ]
 
-{ #category : #initialization }
+{ #category : #private }
 CodeToMarkdown >> writeClass: cls ToMarkdownOn: stream [
 	self encloseToMarkdown: cls definition on: stream
 ]
 
-{ #category : #initialization }
+{ #category : #private }
 CodeToMarkdown >> writeCompiledMethod: cm ToMarkdownOn: stream [
 	| source |
 	source := cm methodClass name, '>>', cm sourceCode.
 	self encloseToMarkdown: source on: stream
 ]
 
-{ #category : #initialization }
+{ #category : #'public - generating' }
 CodeToMarkdown >> writeMarkdown: aFileName [
-
+	"
+	| c |
+	c := CodeToMarkdown new.
+	c addClass: GARobot.
+	c addClass: GARobotMap.
+	c writeMarkdown: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/13-Robot/13-Robot.markdown'
+	"
 	self writeMarkdownOn: aFileName asFileReference writeStream
 ]
 
-{ #category : #initialization }
+{ #category : #'public - generating' }
 CodeToMarkdown >> writeMarkdownOn: stream [
 
 	classesToExtract do: [ :cls |
