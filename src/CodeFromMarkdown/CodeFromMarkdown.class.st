@@ -45,6 +45,26 @@ CodeFromMarkdown >> matrixAndMatrixLib [
 	
 ]
 
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> neuralNetwork [
+	<script: 'self new neuralNetwork'>
+	
+	self removePackageNameIfExist: 'NeuralNetwork'.
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/02-Perceptron/02-chapter2.markdown') install.
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/03-Neuron/03-chapter3.markdown') install.
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/04-NeuralNetwork/04-chapter.markdown') install.
+	
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> neuralNetworkChapter6 [
+	<script: 'self new neuralNetworkChapter6'>
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/06-Data/06-Data.markdown') install.
+
+]
+
 { #category : #accessing }
 CodeFromMarkdown >> numberOfExtractedCode [
 	^ extractedCodes size
