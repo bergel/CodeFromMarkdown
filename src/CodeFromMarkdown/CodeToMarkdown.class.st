@@ -55,9 +55,11 @@ CodeToMarkdown >> writeMarkdown: aFileName [
 { #category : #'public - generating' }
 CodeToMarkdown >> writeMarkdownOn: stream [
 
+	| methods |
 	classesToExtract do: [ :cls |
 		self writeClass: cls ToMarkdownOn: stream.
-		cls methods, cls class methods do: [ :cm |
+		methods := (cls methods, cls class methods) sort: [ :c1 :c2 | c1 selector < c2 selector ].
+		methods do: [ :cm |
 			self writeCompiledMethod: cm ToMarkdownOn: stream. ]
 	]
 ]

@@ -7,6 +7,15 @@ Class {
 	#category : #CodeFromMarkdown
 }
 
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> creature [
+	<script: 'self new creature'>
+	self removePackageNameIfExist: 'Creature'.
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/14-Zoomorphic/14-Zoomorphic.markdown') install.
+
+]
+
 { #category : #accessing }
 CodeFromMarkdown >> extractedCodes [
 	^ extractedCodes
@@ -19,6 +28,11 @@ CodeFromMarkdown >> geneticAlgo [
 	self removePackageNameIfExist: 'GeneticAlgorithm'.
 	
 	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/10-GeneticAlgorithm/10-GeneticAlgorithm.markdown') install.
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/11-GAExamples/11-GAExamples.markdown') install.
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/12-TravelingSalesmanProblem/12-TravelingSalesmanProblem.markdown') install.
+
+
 
 ]
 
@@ -101,4 +115,13 @@ CodeFromMarkdown >> removePackageNameIfExist: aPackageName [
 	| p |
 	p := RPackageOrganizer default packageNamed: aPackageName ifAbsent: [ ^ self ].
 	p removeFromSystem 
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> robot [
+	<script: 'self new robot'>
+	self removePackageNameIfExist: 'Robot'.
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/13-Robot/13-Robot.markdown') install.
+
 ]

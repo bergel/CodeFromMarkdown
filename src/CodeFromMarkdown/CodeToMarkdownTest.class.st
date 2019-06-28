@@ -22,8 +22,8 @@ Object subclass: #CFMCode
 ```
 
 ```Smalltalk
-CFMCode>>lines
-	^ code lines
+CFMCode>>code
+	^ code
 ```
 
 ```Smalltalk
@@ -33,18 +33,11 @@ CFMCode>>code: aString
 ```
 
 ```Smalltalk
-CFMCode>>code
-	^ code
-```
-
-```Smalltalk
-CFMCode>>lineNumber
-	^ lineNumber
-```
-
-```Smalltalk
-CFMCode>>lineNumber: anObject
-	lineNumber := anObject
+CFMCode>>gtInspectorContentsIn: composite
+	<gtInspectorPresentationOrder: 5>
+	composite text
+			title: ''Code'';
+			display: [ self code ]
 ```
 
 ```Smalltalk
@@ -83,11 +76,18 @@ CFMCode>>install
 ```
 
 ```Smalltalk
-CFMCode>>gtInspectorContentsIn: composite
-	<gtInspectorPresentationOrder: 5>
-	composite text
-			title: ''Code'';
-			display: [ self code ]
+CFMCode>>lineNumber
+	^ lineNumber
+```
+
+```Smalltalk
+CFMCode>>lineNumber: anObject
+	lineNumber := anObject
+```
+
+```Smalltalk
+CFMCode>>lines
+	^ code lines
 ```
 
 '
