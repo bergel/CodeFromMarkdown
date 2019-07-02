@@ -118,6 +118,18 @@ CodeFromMarkdown >> removePackageNameIfExist: aPackageName [
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> roassal2 [
+	"Load Roassal2 from local hard disk"
+
+	<script: 'self new roassal2'>
+	Metacello new
+		baseline: 'Roassal2';
+		repository: 'gitlocal:///Users/alexandrebergel/Dropbox/GitRepos/Roassal2';
+		lock;
+		load
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
 CodeFromMarkdown >> robot [
 	<script: 'self new robot'>
 	self removePackageNameIfExist: 'Robot'.
