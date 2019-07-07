@@ -13,6 +13,7 @@ CodeFromMarkdown >> creature [
 	self removePackageNameIfExist: 'Creature'.
 	
 	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/14-Zoomorphic/14-Zoomorphic.markdown') install.
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/15-ZoomorphicSimulation/15-ZoomorphicSimulation.markdown') install.
 
 ]
 
@@ -76,6 +77,16 @@ CodeFromMarkdown >> neuralNetworkChapter6 [
 	<script: 'self new neuralNetworkChapter6'>
 	
 	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/06-Data/06-Data.markdown') install.
+
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> neuroevolution [
+	<script: 'self new neuroevolution'>
+	
+	"self removePackageNameIfExist: 'NeuralNetwork'."
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/16-Neuroevolution/16-Neuroevolution.markdown') install.
 
 ]
 
