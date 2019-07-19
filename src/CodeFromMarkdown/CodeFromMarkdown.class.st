@@ -148,3 +148,12 @@ CodeFromMarkdown >> robot [
 	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/13-Robot/13-Robot.markdown') install.
 
 ]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> tictactoe [
+	<script: 'self new tictactoe'>
+	self removePackageNameIfExist: 'TicTacToe'.
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/17-TicTacToe/17-TicTacToe.markdown') install.
+
+]
