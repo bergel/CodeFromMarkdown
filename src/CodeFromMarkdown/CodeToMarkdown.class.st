@@ -12,6 +12,11 @@ CodeToMarkdown >> addClass: aClass [
 	classesToExtract add: aClass 
 ]
 
+{ #category : #'public - adding' }
+CodeToMarkdown >> addClasses: someClasses [
+	someClasses do: [ :c | self addClass: c ]
+]
+
 { #category : #private }
 CodeToMarkdown >> encloseToMarkdown: code on: stream [
 	stream nextPutAll: '```Smalltalk'; cr.
