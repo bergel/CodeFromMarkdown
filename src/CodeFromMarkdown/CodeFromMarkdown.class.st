@@ -8,22 +8,39 @@ Class {
 }
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> creature [
-	<script: 'self new creature'>
-	self removePackageNameIfExist: 'Creature'.
+CodeFromMarkdown >> chapter04neuralNetwork [
+	<script: 'self new neuralNetwork'>
 	
-	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/14-Zoomorphic/14-Zoomorphic.markdown') install.
-	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/15-ZoomorphicSimulation/15-ZoomorphicSimulation.markdown') install.
-
-]
-
-{ #category : #accessing }
-CodeFromMarkdown >> extractedCodes [
-	^ extractedCodes
+	self removePackageNameIfExist: 'NeuralNetwork'.
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/02-Perceptron/02-chapter2.markdown') install.
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/03-Neuron/03-chapter3.markdown') install.
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/04-NeuralNetwork/04-chapter.markdown') install.
+	
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> geneticAlgo [
+CodeFromMarkdown >> chapter06neuralNetwork [
+	<script: 'self new neuralNetworkChapter6'>
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/06-Data/06-Data.markdown') install.
+
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> chapter08matrixAndMatrixLib [
+	<script: 'self new matrixAndMatrixLib'>
+	
+	self removePackageNameIfExist: 'Matrix'.
+	self removePackageNameIfExist: 'NeuralNetwork-Matrix'.
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/07-MatrixLibrary/07-MatrixLibrary.markdown') install.
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/08-MatrixNN/08-MatrixNN.markdown') install.
+	
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> chapter12geneticAlgo [
 	<script: 'self new geneticAlgo'>
 	
 	self removePackageNameIfExist: 'GeneticAlgorithm'.
@@ -37,6 +54,50 @@ CodeFromMarkdown >> geneticAlgo [
 
 ]
 
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> chapter13robot [
+	<script: 'self new robot'>
+	self removePackageNameIfExist: 'Robot'.
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/13-Robot/13-Robot.markdown') install.
+
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> chapter15creature [
+	<script: 'self new creature'>
+	self removePackageNameIfExist: 'Creature'.
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/14-Zoomorphic/14-Zoomorphic.markdown') install.
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/15-ZoomorphicSimulation/15-ZoomorphicSimulation.markdown') install.
+
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> chapter16neuroevolution [
+	<script: 'self new neuroevolution'>
+	
+	"self removePackageNameIfExist: 'NeuralNetwork'."
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/16-Neuroevolution/16-Neuroevolution.markdown') install.
+
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> chapter17pongGame [
+	<script: 'self new chapter17pongGame'>
+	
+	"self removePackageNameIfExist: 'NeuralNetwork'."
+	
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/17-PongGame/17-PongGame.markdown') install.
+
+]
+
+{ #category : #accessing }
+CodeFromMarkdown >> extractedCodes [
+	^ extractedCodes
+]
+
 { #category : #initialization }
 CodeFromMarkdown >> initialize [
 	super initialize.
@@ -46,48 +107,6 @@ CodeFromMarkdown >> initialize [
 { #category : #actions }
 CodeFromMarkdown >> install [
 	extractedCodes do: #install
-]
-
-{ #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> matrixAndMatrixLib [
-	<script: 'self new matrixAndMatrixLib'>
-	
-	self removePackageNameIfExist: 'Matrix'.
-	self removePackageNameIfExist: 'NeuralNetwork-Matrix'.
-	
-	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/07-MatrixLibrary/07-MatrixLibrary.markdown') install.
-	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/08-MatrixNN/08-MatrixNN.markdown') install.
-	
-]
-
-{ #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> neuralNetwork [
-	<script: 'self new neuralNetwork'>
-	
-	self removePackageNameIfExist: 'NeuralNetwork'.
-	
-	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/02-Perceptron/02-chapter2.markdown') install.
-	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/03-Neuron/03-chapter3.markdown') install.
-	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/04-NeuralNetwork/04-chapter.markdown') install.
-	
-]
-
-{ #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> neuralNetworkChapter6 [
-	<script: 'self new neuralNetworkChapter6'>
-	
-	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/06-Data/06-Data.markdown') install.
-
-]
-
-{ #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> neuroevolution [
-	<script: 'self new neuroevolution'>
-	
-	"self removePackageNameIfExist: 'NeuralNetwork'."
-	
-	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/16-Neuroevolution/16-Neuroevolution.markdown') install.
-
 ]
 
 { #category : #accessing }
@@ -138,15 +157,6 @@ CodeFromMarkdown >> roassal2 [
 		repository: 'gitlocal:///Users/alexandrebergel/Dropbox/GitRepos/Roassal2';
 		lock;
 		load
-]
-
-{ #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> robot [
-	<script: 'self new robot'>
-	self removePackageNameIfExist: 'Robot'.
-	
-	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/13-Robot/13-Robot.markdown') install.
-
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
