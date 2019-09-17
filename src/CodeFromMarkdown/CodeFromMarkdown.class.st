@@ -41,7 +41,7 @@ CodeFromMarkdown >> chapter08matrixAndMatrixLib [
 
 { #category : #'public - Agile Artificial Intelligence' }
 CodeFromMarkdown >> chapter12geneticAlgo [
-	<script: 'self new geneticAlgo'>
+	<script: 'self new chapter12geneticAlgo'>
 	
 	self removePackageNameIfExist: 'GeneticAlgorithm'.
 	
@@ -56,7 +56,7 @@ CodeFromMarkdown >> chapter12geneticAlgo [
 
 { #category : #'public - Agile Artificial Intelligence' }
 CodeFromMarkdown >> chapter13robot [
-	<script: 'self new robot'>
+	<script: 'self new chapter13robot'>
 	self removePackageNameIfExist: 'Robot'.
 	
 	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/13-Robot/13-Robot.markdown') install.
@@ -65,7 +65,7 @@ CodeFromMarkdown >> chapter13robot [
 
 { #category : #'public - Agile Artificial Intelligence' }
 CodeFromMarkdown >> chapter15creature [
-	<script: 'self new creature'>
+	<script: 'self new chapter15creature'>
 	self removePackageNameIfExist: 'Creature'.
 	
 	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/14-Zoomorphic/14-Zoomorphic.markdown') install.
@@ -75,7 +75,7 @@ CodeFromMarkdown >> chapter15creature [
 
 { #category : #'public - Agile Artificial Intelligence' }
 CodeFromMarkdown >> chapter16neuroevolution [
-	<script: 'self new neuroevolution'>
+	<script: 'self new chapter16neuroevolution'>
 	
 	"self removePackageNameIfExist: 'NeuralNetwork'."
 	
