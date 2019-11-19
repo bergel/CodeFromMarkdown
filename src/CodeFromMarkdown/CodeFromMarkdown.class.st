@@ -9,7 +9,7 @@ Class {
 
 { #category : #'public - Agile Artificial Intelligence' }
 CodeFromMarkdown >> chapter04neuralNetwork [
-	<script: 'self new neuralNetwork'>
+	<script: 'self new chapter04neuralNetwork'>
 	
 	self removePackageNameIfExist: 'NeuralNetwork'.
 	
