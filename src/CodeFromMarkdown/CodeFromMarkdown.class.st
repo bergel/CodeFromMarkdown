@@ -21,7 +21,7 @@ CodeFromMarkdown >> chapter04neuralNetwork [
 
 { #category : #'public - Agile Artificial Intelligence' }
 CodeFromMarkdown >> chapter06neuralNetwork [
-	<script: 'self new neuralNetworkChapter6'>
+	<script: 'self new chapter06neuralNetwork'>
 	
 	(self processFileName: '06-Data/06-Data.markdown') install.
 
