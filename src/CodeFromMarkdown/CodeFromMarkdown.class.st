@@ -172,6 +172,6 @@ CodeFromMarkdown >> tictactoe [
 	<script: 'self new tictactoe'>
 	self removePackageNameIfExist: 'TicTacToe'.
 	
-	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/17-TicTacToe/17-TicTacToe.markdown') install.
+	(self processFileName: '/Users/alexandrebergel/Dropbox/Workspace/AgileArtificialIntelligence/book/XX-TicTacToe/17-TicTacToe.markdown') install.
 
 ]
