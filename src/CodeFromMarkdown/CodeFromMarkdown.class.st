@@ -83,12 +83,22 @@ CodeFromMarkdown >> chapter16neuroevolution [
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> chapter17pongGame [
-	<script: 'self new chapter17pongGame'>
+CodeFromMarkdown >> chapter17NEAT [
+	<script: 'self new chapter17NEAT'>
+	
+	self removePackageNameIfExist: 'NEAT'.
+	
+	(self processFileName: '17-NEAT/17-NEAT.markdown') install.
+
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdown >> chapter18pongGame [
+	<script: 'self new chapter18pongGame'>
 	
 	"self removePackageNameIfExist: 'NeuralNetwork'."
 	
-	(self processFileName: '17-PongGame/17-PongGame.markdown') install.
+	(self processFileName: '18-PongGame/18-PongGame.markdown') install.
 
 ]
 
