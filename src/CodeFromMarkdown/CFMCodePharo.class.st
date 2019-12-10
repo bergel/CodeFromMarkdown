@@ -1,34 +1,11 @@
 Class {
-	#name : #CFMCode,
-	#superclass : #Object,
-	#instVars : [
-		'code',
-		'lineNumber'
-	],
+	#name : #CFMCodePharo,
+	#superclass : #CFMAbstractCode,
 	#category : #CodeFromMarkdown
 }
 
-{ #category : #accessing }
-CFMCode >> code [
-	^ code
-]
-
-{ #category : #accessing }
-CFMCode >> code: aString [
-	self assert: [ aString notEmpty ].
-	code := aString
-]
-
-{ #category : #'as yet unclassified' }
-CFMCode >> gtInspectorContentsIn: composite [
-	<gtInspectorPresentationOrder: 5>
-	composite text
-			title: 'Code';
-			display: [ self code ]
-]
-
 { #category : #execution }
-CFMCode >> install [
+CFMCodePharo >> install [
 	"class definition"
 
 	self lines
@@ -60,19 +37,4 @@ CFMCode >> install [
 	OpalCompiler new
 		source: self code;
 		evaluate
-]
-
-{ #category : #accessing }
-CFMCode >> lineNumber [
-	^ lineNumber
-]
-
-{ #category : #accessing }
-CFMCode >> lineNumber: anObject [
-	lineNumber := anObject
-]
-
-{ #category : #accessing }
-CFMCode >> lines [
-	^ code lines
 ]

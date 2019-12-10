@@ -7,33 +7,33 @@ Class {
 { #category : #tests }
 CodeToMarkdownTest >> test [
 
-	| cls c s |
-	cls := CFMCode.
+	| c s |
 	c := CodeToMarkdown new.
-	c addClass: cls.
+	c addClass: CFMAbstractCode.
+	c addClass: CFMCodePharo.
 	
 	s := WriteStream on: String new.
 	c writeMarkdownOn: s.
 	self assert: s contents equals: '```Smalltalk
-Object subclass: #CFMCode
-	instanceVariableNames: ''code lineNumber''
+Object subclass: #CFMAbstractCode
+	instanceVariableNames: ''lineNumber code''
 	classVariableNames: ''''
 	package: ''CodeFromMarkdown''
 ```
 
 ```Smalltalk
-CFMCode>>code
+CFMAbstractCode>>code
 	^ code
 ```
 
 ```Smalltalk
-CFMCode>>code: aString
+CFMAbstractCode>>code: aString
 	self assert: [ aString notEmpty ].
 	code := aString
 ```
 
 ```Smalltalk
-CFMCode>>gtInspectorContentsIn: composite
+CFMAbstractCode>>gtInspectorContentsIn: composite
 	<gtInspectorPresentationOrder: 5>
 	composite text
 			title: ''Code'';
@@ -41,7 +41,29 @@ CFMCode>>gtInspectorContentsIn: composite
 ```
 
 ```Smalltalk
-CFMCode>>install
+CFMAbstractCode>>lineNumber
+	^ lineNumber
+```
+
+```Smalltalk
+CFMAbstractCode>>lineNumber: anObject
+	lineNumber := anObject
+```
+
+```Smalltalk
+CFMAbstractCode>>lines
+	^ code lines
+```
+
+```Smalltalk
+CFMAbstractCode subclass: #CFMCodePharo
+	instanceVariableNames: ''''
+	classVariableNames: ''''
+	package: ''CodeFromMarkdown''
+```
+
+```Smalltalk
+CFMCodePharo>>install
 	"class definition"
 
 	self lines
@@ -73,21 +95,6 @@ CFMCode>>install
 	OpalCompiler new
 		source: self code;
 		evaluate
-```
-
-```Smalltalk
-CFMCode>>lineNumber
-	^ lineNumber
-```
-
-```Smalltalk
-CFMCode>>lineNumber: anObject
-	lineNumber := anObject
-```
-
-```Smalltalk
-CFMCode>>lines
-	^ code lines
 ```
 
 '

@@ -116,7 +116,7 @@ CFMTest >> setUp [
 CFMTest >> testBasic [
 
 	| c |
-	c := CodeFromMarkdown new.
+	c := CodeFromMarkdownPharo new.
 	self assert: c numberOfExtractedCode equals: 0.
 	self assert: c extractedCodes isEmpty
 ]
@@ -125,7 +125,7 @@ CFMTest >> testBasic [
 CFMTest >> testOnLargeExample [
 
 	| c |
-	c := CodeFromMarkdown new.
+	c := CodeFromMarkdownPharo new.
 	c processText: self exampleLarge.
 	self assert: c numberOfExtractedCode equals: 3.
 	self assert: c extractedCodes size equals: 3.
@@ -160,7 +160,7 @@ CFMTest >> testOnLargeExample [
 CFMTest >> testOnLargeExample2 [
 
 	| c cls |
-	c := CodeFromMarkdown new.
+	c := CodeFromMarkdownPharo new.
 	c processText: self exampleLarge.
 	
 	self deny: (Smalltalk includesKey: #MMatrixfdsfd).
@@ -175,7 +175,7 @@ CFMTest >> testOnLargeExample2 [
 CFMTest >> testWithSpace [
 
 	| c |
-	c := CodeFromMarkdown new.
+	c := CodeFromMarkdownPharo new.
 	c processText: 
 '
 hello world

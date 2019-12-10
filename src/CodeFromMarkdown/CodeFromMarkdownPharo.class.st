@@ -1,14 +1,11 @@
 Class {
-	#name : #CodeFromMarkdown,
-	#superclass : #Object,
-	#instVars : [
-		'extractedCodes'
-	],
+	#name : #CodeFromMarkdownPharo,
+	#superclass : #AbstractCodeFromMarkdown,
 	#category : #CodeFromMarkdown
 }
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> chapter04neuralNetwork [
+CodeFromMarkdownPharo >> chapter04neuralNetwork [
 	<script: 'self new chapter04neuralNetwork'>
 	
 	self removePackageNameIfExist: 'NeuralNetwork'.
@@ -20,7 +17,7 @@ CodeFromMarkdown >> chapter04neuralNetwork [
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> chapter06neuralNetwork [
+CodeFromMarkdownPharo >> chapter06neuralNetwork [
 	<script: 'self new chapter06neuralNetwork'>
 	
 	(self processFileName: '06-Data/06-Data.markdown') install.
@@ -28,7 +25,7 @@ CodeFromMarkdown >> chapter06neuralNetwork [
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> chapter08matrixAndMatrixLib [
+CodeFromMarkdownPharo >> chapter08matrixAndMatrixLib [
 	<script: 'self new matrixAndMatrixLib'>
 	
 	self removePackageNameIfExist: 'Matrix'.
@@ -40,7 +37,7 @@ CodeFromMarkdown >> chapter08matrixAndMatrixLib [
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> chapter12geneticAlgo [
+CodeFromMarkdownPharo >> chapter12geneticAlgo [
 	<script: 'self new chapter12geneticAlgo'>
 	
 	self removePackageNameIfExist: 'GeneticAlgorithm'.
@@ -54,7 +51,7 @@ CodeFromMarkdown >> chapter12geneticAlgo [
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> chapter13robot [
+CodeFromMarkdownPharo >> chapter13robot [
 	<script: 'self new chapter13robot'>
 	self removePackageNameIfExist: 'Robot'.
 	
@@ -63,7 +60,7 @@ CodeFromMarkdown >> chapter13robot [
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> chapter15creature [
+CodeFromMarkdownPharo >> chapter15creature [
 	<script: 'self new chapter15creature'>
 	self removePackageNameIfExist: 'Creature'.
 	
@@ -73,7 +70,7 @@ CodeFromMarkdown >> chapter15creature [
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> chapter16neuroevolution [
+CodeFromMarkdownPharo >> chapter16neuroevolution [
 	<script: 'self new chapter16neuroevolution'>
 	
 	"self removePackageNameIfExist: 'NeuralNetwork'."
@@ -83,7 +80,7 @@ CodeFromMarkdown >> chapter16neuroevolution [
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> chapter17NEAT [
+CodeFromMarkdownPharo >> chapter17NEAT [
 	<script: 'self new chapter17NEAT'>
 	
 	self removePackageNameIfExist: 'NEAT'.
@@ -93,7 +90,7 @@ CodeFromMarkdown >> chapter17NEAT [
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> chapter18pongGame [
+CodeFromMarkdownPharo >> chapter18pongGame [
 	<script: 'self new chapter18pongGame'>
 	
 	"self removePackageNameIfExist: 'NeuralNetwork'."
@@ -102,65 +99,30 @@ CodeFromMarkdown >> chapter18pongGame [
 
 ]
 
-{ #category : #accessing }
-CodeFromMarkdown >> extractedCodes [
-	^ extractedCodes
-]
-
-{ #category : #initialization }
-CodeFromMarkdown >> initialize [
-	super initialize.
-	extractedCodes := OrderedCollection new
+{ #category : #public }
+CodeFromMarkdownPharo >> codeClass [
+	^ CFMCodePharo
 ]
 
 { #category : #actions }
-CodeFromMarkdown >> install [
+CodeFromMarkdownPharo >> install [
 	extractedCodes do: #install
 ]
 
-{ #category : #accessing }
-CodeFromMarkdown >> numberOfExtractedCode [
-	^ extractedCodes size
-]
-
 { #category : #public }
-CodeFromMarkdown >> processFileName: aFilename [
-	"
-	(self new processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/07-MatrixLibrary/07-Matrix.markdown') install.
-	(self new processFileName: '/Users/alexandrebergel/Dropbox/Workspace/Books/AgileArtificialIntelligence.github.io/book/08-MatrixNN/08-MatrixNN.markdown') install.
-	"
-	"Check if the filename is absolute. If not, then we prepend the rootFolder"
-	| t |
-	t := (aFilename beginsWith: '/') ifTrue: [ aFilename ] ifFalse: [ self rootFolderName, aFilename ].
-	self processText: t asFileReference contents
-]
-
-{ #category : #public }
-CodeFromMarkdown >> processText: aText [
-
-	| isInCode currentCode code |
-	isInCode := false.
-	currentCode := OrderedCollection new. 
-	aText lines doWithIndex: [ :l :lineNumber |
-"self haltIf: [ l beginsWith: 'MMatrix>>add: aMatrix']."
-		((l = '```') and: [ isInCode ]) ifTrue: [ isInCode := false. code := CFMCode new code: (String cr join: currentCode); lineNumber: lineNumber; yourself. extractedCodes add: code ].	
-		(l = '...' and: [ isInCode ]) ifTrue: [ currentCode := extractedCodes last code lines asOrderedCollection ].
-		isInCode ifTrue: [ 
-			currentCode add: l
-		].
-		(l = '```Smalltalk') ifTrue: [ isInCode := true. currentCode := OrderedCollection new ].
-	 ]
+CodeFromMarkdownPharo >> markdownCodeKeyword [
+	^ 'Smalltalk'
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> removePackageNameIfExist: aPackageName [
+CodeFromMarkdownPharo >> removePackageNameIfExist: aPackageName [
 	| p |
 	p := RPackageOrganizer default packageNamed: aPackageName ifAbsent: [ ^ self ].
 	p removeFromSystem 
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> roassal2 [
+CodeFromMarkdownPharo >> roassal2 [
 	"Load Roassal2 from local hard disk"
 
 	<script: 'self new roassal2'>
@@ -172,13 +134,13 @@ CodeFromMarkdown >> roassal2 [
 ]
 
 { #category : #public }
-CodeFromMarkdown >> rootFolderName [
+CodeFromMarkdownPharo >> rootFolderName [
 	"Root folder of where the book is located. Note that it ends with /"
 	^ '/Users/alexandrebergel/Dropbox/Workspace/AgileArtificialIntelligence/book/'
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
-CodeFromMarkdown >> tictactoe [
+CodeFromMarkdownPharo >> tictactoe [
 	<script: 'self new tictactoe'>
 	self removePackageNameIfExist: 'TicTacToe'.
 	
