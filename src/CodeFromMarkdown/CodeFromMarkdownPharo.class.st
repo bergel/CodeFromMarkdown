@@ -104,11 +104,6 @@ CodeFromMarkdownPharo >> codeClass [
 	^ CFMCodePharo
 ]
 
-{ #category : #actions }
-CodeFromMarkdownPharo >> install [
-	extractedCodes do: #install
-]
-
 { #category : #public }
 CodeFromMarkdownPharo >> markdownCodeKeyword [
 	^ 'Smalltalk'

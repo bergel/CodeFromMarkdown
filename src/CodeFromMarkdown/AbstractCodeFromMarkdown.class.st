@@ -23,6 +23,11 @@ AbstractCodeFromMarkdown >> initialize [
 	extractedCodes := OrderedCollection new
 ]
 
+{ #category : #actions }
+AbstractCodeFromMarkdown >> install [
+	extractedCodes do: #install
+]
+
 { #category : #public }
 AbstractCodeFromMarkdown >> markdownCodeKeyword [
 	"What is the code keyword?? For example, in the markdown code ```Smalltalk
