@@ -83,10 +83,10 @@ CodeFromMarkdownPharo >> chapter16neuroevolution [
 CodeFromMarkdownPharo >> chapter17NEAT [
 	<script: 'self new chapter17NEAT'>
 	
-	self removePackageNameIfExist: 'NEAT'.
+	self removePackageNameIfExist: 'NEAT'; removePackageNameIfExist: 'MiniMario'.
 	
 	(self processFileName: '17-NEAT/17-NEAT.markdown') install.
-
+	(self processFileName: '18-MarioGame/18-MarioGame.markdown') install.
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }
