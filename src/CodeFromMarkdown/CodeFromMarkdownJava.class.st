@@ -19,7 +19,7 @@ CodeFromMarkdownJava >> codeClass [
 
 { #category : #public }
 CodeFromMarkdownJava >> markdownCodeKeyword [
-	^ 'Java'
+	^ 'java'
 ]
 
 { #category : #public }
