@@ -99,6 +99,13 @@ CodeFromMarkdownPharo >> chapter18pongGame [
 
 ]
 
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdownPharo >> chapter19LongEvolutionOfMario [
+	<script: 'self new chapter19LongEvolutionOfMario'>
+	
+	(self processFileName: '19-NeuroevolutionOnMario/19-NeuroevolutionOnMario.markdown') install.
+]
+
 { #category : #public }
 CodeFromMarkdownPharo >> codeClass [
 	^ CFMCodePharo
