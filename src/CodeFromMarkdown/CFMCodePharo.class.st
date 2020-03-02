@@ -11,7 +11,9 @@ CFMCodePharo >> install [
 	self lines
 		ifEmpty: [ self error: 'Cannot install empty code snippet' ].
 	('* subclass: #*' match: self lines first)
-		ifTrue: [ [OpalCompiler new
+		ifTrue: [ 
+			self assert: [ ('*category*' match: self lines last) not ] description: 'Should use the new syntax of class definition!'.
+			[ OpalCompiler new
 				source: self code;
 				evaluate.] on: SyntaxErrorNotification do: [ :ex | ex inspect. self inspect ].
 			^ self ].

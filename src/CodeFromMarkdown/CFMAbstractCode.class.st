@@ -19,7 +19,7 @@ CFMAbstractCode >> code: aString [
 	code := aString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'gt inspector' }
 CFMAbstractCode >> gtInspectorContentsIn: composite [
 	<gtInspectorPresentationOrder: 5>
 	composite text
@@ -33,8 +33,8 @@ CFMAbstractCode >> lineNumber [
 ]
 
 { #category : #accessing }
-CFMAbstractCode >> lineNumber: anObject [
-	lineNumber := anObject
+CFMAbstractCode >> lineNumber: aLineNumber [
+	lineNumber := aLineNumber
 ]
 
 { #category : #accessing }

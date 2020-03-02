@@ -5,6 +5,35 @@ Class {
 }
 
 { #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdownPharo >> allRun [
+	<script: 'self new allRun'>
+	self 
+		chapter01Introduction;
+		chapter04neuralNetwork;
+		chapter05neuralNetwork;
+		chapter06neuralNetwork;
+		chapter08matrixAndMatrixLib;
+		
+		chapter12geneticAlgo;
+		chapter13robot;
+		chapter15creature;
+		
+		chapter16neuroevolution;
+		chapter17NEAT;
+		chapter19LongEvolutionOfMario
+		
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdownPharo >> chapter01Introduction [
+	<script: 'self new chapter01Introduction'>
+	"There is nothing in this chapter, but this is sanity check"	
+	
+	(self processFileName: '01-Introduction/01-Introduction.markdown') install.
+
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
 CodeFromMarkdownPharo >> chapter04neuralNetwork [
 	<script: 'self new chapter04neuralNetwork'>
 	
@@ -14,6 +43,14 @@ CodeFromMarkdownPharo >> chapter04neuralNetwork [
 	(self processFileName: '03-Neuron/03-chapter3.markdown') install.
 	(self processFileName: '04-NeuralNetwork/04-chapter.markdown') install.
 	
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdownPharo >> chapter05neuralNetwork [
+	<script: 'self new chapter05neuralNetwork'>
+	
+	(self processFileName: '05-Learning/05-Learning.markdown') install.
+
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }

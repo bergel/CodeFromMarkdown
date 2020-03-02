@@ -57,7 +57,8 @@ AbstractCodeFromMarkdown >> processText: aText [
 	| isInCode currentCode code |
 	isInCode := false.
 	currentCode := OrderedCollection new.
-	aText lines doWithIndex: [ :l :lineNumber | "self haltIf: [ l beginsWith: 'MMatrix>>add: aMatrix']."
+	aText lines doWithIndex: [ :l :lineNumber | 
+		"End of the code section"
 		(l = '```' and: [ isInCode ]) ifTrue: [ 
 			isInCode := false.
 			code := self codeClass new
@@ -65,9 +66,12 @@ AbstractCodeFromMarkdown >> processText: aText [
 				        lineNumber: lineNumber;
 				        yourself.
 			extractedCodes add: code ].
+		
 		(l = '...' and: [ isInCode ]) ifTrue: [ 
 			currentCode := extractedCodes last code lines asOrderedCollection ].
 		isInCode ifTrue: [ currentCode add: l ].
+
+		"Begining of a code section"
 		l = ('```' , self markdownCodeKeyword) ifTrue: [ 
 			isInCode := true.
 			currentCode := OrderedCollection new ] ]
