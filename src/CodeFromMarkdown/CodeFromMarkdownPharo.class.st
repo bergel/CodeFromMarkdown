@@ -8,7 +8,7 @@ Class {
 CodeFromMarkdownPharo >> allRun [
 	<script: 'self new allRun'>
 	self 
-		chapter01Introduction;
+		"chapter01Introduction;"
 		chapter04neuralNetwork;
 		chapter05neuralNetwork;
 		chapter06neuralNetwork;

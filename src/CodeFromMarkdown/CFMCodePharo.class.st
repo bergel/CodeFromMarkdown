@@ -35,6 +35,12 @@ CFMCodePharo >> install [
 				ifTrue: [ classReceiver debug: signature ].
 			^ self ].
 
+	"Do nothing if asked to load Roassal"
+	self code = 'Metacello new
+    baseline: ''Roassal2'';
+    repository: ''github://ObjectProfile/Roassal2/src'';
+    load.' ifTrue: [ ^ self  ].
+
 	"simple code snippet -- We execute it in that case"
 	OpalCompiler new
 		source: self code;
