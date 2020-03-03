@@ -2,7 +2,8 @@ Class {
 	#name : #AbstractCodeFromMarkdown,
 	#superclass : #Object,
 	#instVars : [
-		'extractedCodes'
+		'extractedCodes',
+		'context'
 	],
 	#category : #CodeFromMarkdown
 }
@@ -13,6 +14,11 @@ AbstractCodeFromMarkdown >> codeClass [
 ]
 
 { #category : #accessing }
+AbstractCodeFromMarkdown >> context [ 
+	^ context
+]
+
+{ #category : #accessing }
 AbstractCodeFromMarkdown >> extractedCodes [
 	^ extractedCodes
 ]
@@ -20,7 +26,8 @@ AbstractCodeFromMarkdown >> extractedCodes [
 { #category : #initialization }
 AbstractCodeFromMarkdown >> initialize [
 	super initialize.
-	extractedCodes := OrderedCollection new
+	extractedCodes := OrderedCollection new.
+	context := CFMContext new.
 ]
 
 { #category : #actions }

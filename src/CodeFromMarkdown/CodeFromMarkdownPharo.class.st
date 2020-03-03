@@ -7,6 +7,9 @@ Class {
 { #category : #'public - Agile Artificial Intelligence' }
 CodeFromMarkdownPharo >> allRun [
 	<script: 'self new allRun'>
+
+	context := CFMCleaningContext new.
+
 	self 
 		"chapter01Introduction;"
 		chapter04neuralNetwork;
@@ -20,7 +23,7 @@ CodeFromMarkdownPharo >> allRun [
 		
 		chapter16neuroevolution;
 		chapter17NEAT;
-		chapter19LongEvolutionOfMario
+		chapter18MarioGame
 		
 ]
 
@@ -123,6 +126,13 @@ CodeFromMarkdownPharo >> chapter17NEAT [
 	self removePackageNameIfExist: 'NEAT'; removePackageNameIfExist: 'MiniMario'.
 	
 	(self processFileName: '17-NEAT/17-NEAT.markdown') install.
+	(self processFileName: '18-MarioGame/18-MarioGame.markdown') install.
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdownPharo >> chapter18MarioGame [
+	<script: 'self new chapter18MarioGame'>
+	
 	(self processFileName: '18-MarioGame/18-MarioGame.markdown') install.
 ]
 
