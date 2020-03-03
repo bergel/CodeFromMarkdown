@@ -9,7 +9,7 @@ Class {
 
 { #category : #'as yet unclassified' }
 CFMCleaningContext >> afterExecution [
-	(self allOpenWindows copyWithoutAll: windows) delete
+	(self allOpenWindows copyWithoutAll: windows) do: [ :w | w delete ]
 ]
 
 { #category : #'as yet unclassified' }
