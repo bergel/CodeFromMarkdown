@@ -32,7 +32,10 @@ AbstractCodeFromMarkdown >> initialize [
 
 { #category : #actions }
 AbstractCodeFromMarkdown >> install [
-	extractedCodes do: #install
+	extractedCodes do: [ :code | 
+		context beforeExecution.
+		code install.
+		context afterExecution. ].
 ]
 
 { #category : #public }
