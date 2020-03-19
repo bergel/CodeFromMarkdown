@@ -2,7 +2,8 @@ Class {
 	#name : #CFMContext,
 	#superclass : #Object,
 	#instVars : [
-		'bindings'
+		'bindings',
+		'processedFileName'
 	],
 	#category : #CodeFromMarkdown
 }
@@ -34,4 +35,25 @@ CFMContext >> beforeExecution [
 CFMContext >> initialize [
 	super initialize.
 	bindings := Dictionary new
+]
+
+{ #category : #accessing }
+CFMContext >> processedFileName [
+	^ processedFileName
+]
+
+{ #category : #accessing }
+CFMContext >> processedFileName: fileNameAsString [
+	"Set the basefilename that is currently being processed"
+	processedFileName := fileNameAsString
+]
+
+{ #category : #asserting }
+CFMContext >> shouldExecuteScripts [
+	^ true
+]
+
+{ #category : #asserting }
+CFMContext >> shouldSaveScriptInFile [
+	^ false
 ]

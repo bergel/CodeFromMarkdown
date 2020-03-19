@@ -10,6 +10,8 @@ CFMCodePharo >> install [
 
 	self lines
 		ifEmpty: [ self error: 'Cannot install empty code snippet' ].
+		
+	"If this is a class definition"
 	('* subclass: #*' match: self lines first)
 		ifTrue: [ 
 			self assert: [ ('*category*' match: self lines last) not ] description: 'Should use the new syntax of class definition!'.
@@ -41,8 +43,18 @@ CFMCodePharo >> install [
     repository: ''github://ObjectProfile/Roassal2/src'';
     load.' ifTrue: [ ^ self  ].
 
+
 	"simple code snippet -- We execute it in that case"
-	OpalCompiler new
-		source: self code;
-		evaluate
+	context shouldExecuteScripts ifTrue: [
+		OpalCompiler new
+			source: self code;
+			evaluate ].
+	
+	context shouldSaveScriptInFile ifTrue: [ 
+		(context targetFolder / (context processedFileName, '.txt')) writeStream
+			nextPutAll: '-----------------------------';
+			lf;
+			nextPutAll: self code;
+			close
+	]
 ]

@@ -3,7 +3,8 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'lineNumber',
-		'code'
+		'code',
+		'context'
 	],
 	#category : #CodeFromMarkdown
 }
@@ -17,6 +18,16 @@ CFMAbstractCode >> code [
 CFMAbstractCode >> code: aString [
 	self assert: [ aString notEmpty ].
 	code := aString
+]
+
+{ #category : #accessing }
+CFMAbstractCode >> context [
+	^ context
+]
+
+{ #category : #accessing }
+CFMAbstractCode >> context: aCFMContext [
+	context := aCFMContext
 ]
 
 { #category : #'gt inspector' }

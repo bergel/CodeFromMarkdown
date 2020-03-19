@@ -158,6 +158,33 @@ CodeFromMarkdownPharo >> codeClass [
 	^ CFMCodePharo
 ]
 
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdownPharo >> loadAndProduceScripts [
+	<script: 'self new loadAndProduceScripts'>
+
+	| path f |
+	path := '/Users/alexandrebergel/Desktop/ScriptAAI/'.
+	f := path asFileReference.
+	f exists ifFalse: [ f createDirectory ].
+	context := CFMDoNotExecuteAndProduceScriptContext new.
+	context targetFolder: f.
+	self 
+		"chapter01Introduction;"
+		chapter04neuralNetwork;
+		chapter05neuralNetwork;
+		chapter06neuralNetwork;
+		chapter08matrixAndMatrixLib;
+		
+		chapter12geneticAlgo;
+		chapter13robot;
+		chapter15creature;
+		
+		chapter16neuroevolution;
+		chapter17NEAT;
+		chapter18MarioGame
+		
+]
+
 { #category : #public }
 CodeFromMarkdownPharo >> markdownCodeKeyword [
 	^ 'Smalltalk'

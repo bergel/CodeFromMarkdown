@@ -26,16 +26,19 @@ AbstractCodeFromMarkdown >> extractedCodes [
 { #category : #initialization }
 AbstractCodeFromMarkdown >> initialize [
 	super initialize.
-	extractedCodes := OrderedCollection new.
+	self resetExtractedCode.
 	context := CFMContext new.
 ]
 
 { #category : #actions }
 AbstractCodeFromMarkdown >> install [
-	extractedCodes do: [ :code | 
-		context beforeExecution.
-		code install.
-		context afterExecution. ].
+	extractedCodes
+		do: [ :code | 
+			code context: context.
+			context beforeExecution.
+			code install.
+			context afterExecution ].
+	self resetExtractedCode
 ]
 
 { #category : #public }
@@ -59,6 +62,7 @@ AbstractCodeFromMarkdown >> processFileName: aFilename [
 	"Check if the filename is absolute. If not, then we prepend the rootFolder"
 	| t |
 	t := (aFilename beginsWith: '/') ifTrue: [ aFilename ] ifFalse: [ self rootFolderName, aFilename ].
+	context processedFileName: (t asFileReference basename substrings: '.') first.
 	self processText: t asFileReference contents
 ]
 
@@ -85,6 +89,11 @@ AbstractCodeFromMarkdown >> processText: aText [
 		l = ('```' , self markdownCodeKeyword) ifTrue: [ 
 			isInCode := true.
 			currentCode := OrderedCollection new ] ]
+]
+
+{ #category : #actions }
+AbstractCodeFromMarkdown >> resetExtractedCode [
+	extractedCodes := OrderedCollection new
 ]
 
 { #category : #public }
