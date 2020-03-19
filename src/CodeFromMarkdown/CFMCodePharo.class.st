@@ -52,9 +52,12 @@ CFMCodePharo >> install [
 	
 	context shouldSaveScriptInFile ifTrue: [ 
 		(context targetFolder / (context processedFileName, '.txt')) writeStream
+			setToEnd;
+			lf;
 			nextPutAll: '-----------------------------';
 			lf;
 			nextPutAll: self code;
+			lf;
 			close
 	]
 ]
