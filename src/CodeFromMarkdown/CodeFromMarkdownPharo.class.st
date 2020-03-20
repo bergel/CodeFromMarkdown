@@ -8,7 +8,7 @@ Class {
 CodeFromMarkdownPharo >> allRun [
 	<script: 'self new allRun'>
 
-	context := CFMCleaningContext new.
+	context := CFMCleaningWindowsContext new.
 
 	self 
 		"chapter01Introduction;"
@@ -156,6 +156,29 @@ CodeFromMarkdownPharo >> chapter19LongEvolutionOfMario [
 { #category : #public }
 CodeFromMarkdownPharo >> codeClass [
 	^ CFMCodePharo
+]
+
+{ #category : #'public - Agile Artificial Intelligence' }
+CodeFromMarkdownPharo >> collectPicturesNames [
+	<script: 'self new collectPicturesNames'>
+
+	context := CFMCollectPicturesContext new.
+	self 
+		chapter01Introduction;
+		chapter04neuralNetwork;
+		chapter05neuralNetwork;
+		chapter06neuralNetwork;
+		chapter08matrixAndMatrixLib;
+		
+		chapter12geneticAlgo;
+		chapter13robot;
+		chapter15creature;
+		
+		chapter16neuroevolution;
+		chapter17NEAT;
+		chapter18MarioGame.
+	^ context inspect
+		
 ]
 
 { #category : #'public - Agile Artificial Intelligence' }

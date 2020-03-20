@@ -32,6 +32,8 @@ AbstractCodeFromMarkdown >> initialize [
 
 { #category : #actions }
 AbstractCodeFromMarkdown >> install [
+	context shouldInstallCode ifFalse: [ ^ self resetExtractedCode ].
+	
 	extractedCodes
 		do: [ :code | 
 			code context: context.
@@ -71,7 +73,9 @@ AbstractCodeFromMarkdown >> processText: aText [
 	| isInCode currentCode code |
 	isInCode := false.
 	currentCode := OrderedCollection new.
-	aText lines doWithIndex: [ :l :lineNumber | 
+	aText lines doWithIndex: [ :l :lineNumber |
+		(l beginsWith: '![') ifTrue: [ context processImageInstruction: l ].
+			
 		"End of the code section"
 		(l = '```' and: [ isInCode ]) ifTrue: [ 
 			isInCode := false.

@@ -1,5 +1,5 @@
 Class {
-	#name : #CFMCleaningContext,
+	#name : #CFMCleaningWindowsContext,
 	#superclass : #CFMContext,
 	#instVars : [
 		'windows'
@@ -8,16 +8,16 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
-CFMCleaningContext >> afterExecution [
+CFMCleaningWindowsContext >> afterExecution [
 	(self allOpenWindows copyWithoutAll: windows) do: [ :w | w delete ]
 ]
 
 { #category : #'as yet unclassified' }
-CFMCleaningContext >> allOpenWindows [
+CFMCleaningWindowsContext >> allOpenWindows [
 	^ GLMSystemWindow allInstances , SystemWindow allInstances
 ]
 
 { #category : #'as yet unclassified' }
-CFMCleaningContext >> beforeExecution [
+CFMCleaningWindowsContext >> beforeExecution [
 	windows := self allOpenWindows
 ]

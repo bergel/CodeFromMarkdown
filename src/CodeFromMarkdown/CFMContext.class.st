@@ -37,6 +37,10 @@ CFMContext >> initialize [
 	bindings := Dictionary new
 ]
 
+{ #category : #'as yet unclassified' }
+CFMContext >> processImageInstruction: instruction [
+]
+
 { #category : #accessing }
 CFMContext >> processedFileName [
 	^ processedFileName
@@ -50,6 +54,11 @@ CFMContext >> processedFileName: fileNameAsString [
 
 { #category : #asserting }
 CFMContext >> shouldExecuteScripts [
+	^ true
+]
+
+{ #category : #asserting }
+CFMContext >> shouldInstallCode [
 	^ true
 ]
 

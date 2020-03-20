@@ -16,7 +16,7 @@ CodeToMarkdownTest >> test [
 	c writeMarkdownOn: s.
 	self assert: s contents equals: '```Smalltalk
 Object subclass: #CFMAbstractCode
-	instanceVariableNames: ''lineNumber code''
+	instanceVariableNames: ''lineNumber code context''
 	classVariableNames: ''''
 	package: ''CodeFromMarkdown''
 ```
@@ -30,6 +30,16 @@ CFMAbstractCode>>code
 CFMAbstractCode>>code: aString
 	self assert: [ aString notEmpty ].
 	code := aString
+```
+
+```Smalltalk
+CFMAbstractCode>>context
+	^ context
+```
+
+```Smalltalk
+CFMAbstractCode>>context: aCFMContext
+	context := aCFMContext
 ```
 
 ```Smalltalk
@@ -68,6 +78,8 @@ CFMCodePharo>>install
 
 	self lines
 		ifEmpty: [ self error: ''Cannot install empty code snippet'' ].
+		
+	"If this is a class definition"
 	(''* subclass: #*'' match: self lines first)
 		ifTrue: [ 
 			self assert: [ (''*category*'' match: self lines last) not ] description: ''Should use the new syntax of class definition!''.
@@ -99,11 +111,48 @@ CFMCodePharo>>install
     repository: ''''github://ObjectProfile/Roassal2/src'''';
     load.'' ifTrue: [ ^ self  ].
 
+
 	"simple code snippet -- We execute it in that case"
-	OpalCompiler new
-		source: self code;
-		evaluate
+	context shouldExecuteScripts ifTrue: [
+		OpalCompiler new
+			source: self code;
+			evaluate ].
+	
+	context shouldSaveScriptInFile ifTrue: [ 
+		(context targetFolder / (context processedFileName, ''.txt'')) writeStream
+			setToEnd;
+			lf;
+			nextPutAll: ''-----------------------------'';
+			lf;
+			nextPutAll: self code;
+			lf;
+			close
+	]
 ```
 
 '
+]
+
+{ #category : #tests }
+CodeToMarkdownTest >> testExtractingFilename [
+
+	| instruction c |
+	instruction := '![Knapsack problem (obtained from Wikipedia, authored by Dake, under Creative Commons Attribution-Share Alike 2.5 Generic).](11-GAExamples/figures/knapsack.png){#fig:knapsackExample width=250px}'.
+	
+	c := CFMCollectPicturesContext new.
+	c processImageInstruction: instruction.
+	self assert: c filenames size equals: 1.
+	self assert: c filenames first equals: '11-GAExamples/figures/knapsack.png'
+]
+
+{ #category : #tests }
+CodeToMarkdownTest >> testExtractingFilename2 [
+
+	| instruction c |
+	instruction := '![MiniMario.](18-MarioGame/figures/miniMario.png){#fig:miniMario width=200px}'.
+	
+	c := CFMCollectPicturesContext new.
+	c processImageInstruction: instruction.
+	self assert: c filenames size equals: 1.
+	self assert: c filenames first equals: '18-MarioGame/figures/miniMario.png'
 ]
