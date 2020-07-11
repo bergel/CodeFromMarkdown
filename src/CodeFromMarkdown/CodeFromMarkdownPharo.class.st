@@ -192,7 +192,7 @@ CodeFromMarkdownPharo >> loadAndProduceScripts [
 	context := CFMDoNotExecuteAndProduceScriptContext new.
 	context targetFolder: f.
 	self 
-		"chapter01Introduction;"
+		chapter01Introduction;
 		chapter04neuralNetwork;
 		chapter05neuralNetwork;
 		chapter06neuralNetwork;
