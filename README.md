@@ -1,4 +1,5 @@
 # CodeFromMarkdown
+[![Build Status](https://travis-ci.com/bergel/CodeFromMarkdown.svg?branch=master)](https://travis-ci.com/bergel/CodeFromMarkdown)
 
 This project loads code from Pandoc markdown.
 
