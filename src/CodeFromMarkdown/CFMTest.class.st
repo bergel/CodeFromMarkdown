@@ -1,7 +1,7 @@
 Class {
 	#name : #CFMTest,
 	#superclass : #TestCase,
-	#category : #CodeFromMarkdown
+	#category : #'CodeFromMarkdown-Tests'
 }
 
 { #category : #examples }
