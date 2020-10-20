@@ -1,7 +1,7 @@
 Class {
 	#name : #CodeToMarkdownTest,
 	#superclass : #TestCase,
-	#category : #CodeFromMarkdown
+	#category : #'CodeFromMarkdown-Tests'
 }
 
 { #category : #tests }
