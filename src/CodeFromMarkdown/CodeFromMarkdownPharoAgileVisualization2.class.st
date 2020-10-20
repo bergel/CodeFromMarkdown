@@ -5,8 +5,8 @@ Class {
 }
 
 { #category : #public }
-CodeFromMarkdownPharoAgileVisualization2 >> chapter01Introduction [
-	<script: 'self new chapter01Introduction'>
+CodeFromMarkdownPharoAgileVisualization2 >> chapter01_04_PharoInANutshell [
+	<script: 'self new chapter01_04_PharoInANutshell'>
 	"There is nothing in this chapter, but this is sanity check"	
 	
 	(self processFileName: '01-04-PharoInANutshell/PharoInANutshell.md') install.
@@ -26,5 +26,5 @@ CodeFromMarkdownPharoAgileVisualization2 >> markdownCodeKeyword [
 { #category : #public }
 CodeFromMarkdownPharoAgileVisualization2 >> rootFolderName [
 	"Root folder of where the book is located. Note that it ends with /"
-	^ '/Users/alexandrebergel/Dropbox/Workspace/books/AgileVisualizationAPress/book'
+	^ '/Users/alexandrebergel/Dropbox/Workspace/books/AgileVisualizationAPress/book/'
 ]
