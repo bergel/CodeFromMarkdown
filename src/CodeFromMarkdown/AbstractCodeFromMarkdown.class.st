@@ -3,10 +3,18 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'extractedCodes',
-		'context'
+		'context',
+		'notExecuteNextSnippet'
 	],
 	#category : #'CodeFromMarkdown-Core'
 }
+
+{ #category : #public }
+AbstractCodeFromMarkdown >> addExtractedCode: code [
+	"Add a code as extracted code, only if the flag is not set"
+	notExecuteNextSnippet ifTrue: [ notExecuteNextSnippet := false. ^ self ].
+	extractedCodes add: code
+]
 
 { #category : #public }
 AbstractCodeFromMarkdown >> codeClass [
@@ -28,6 +36,7 @@ AbstractCodeFromMarkdown >> initialize [
 	super initialize.
 	self resetExtractedCode.
 	context := CFMContext new.
+	notExecuteNextSnippet := false
 ]
 
 { #category : #actions }
@@ -50,6 +59,11 @@ AbstractCodeFromMarkdown >> markdownCodeKeyword [
 	self subclassResponsibility 
 ]
 
+{ #category : #actions }
+AbstractCodeFromMarkdown >> mustNotExecuteNextSnippet [
+	notExecuteNextSnippet := true
+]
+
 { #category : #accessing }
 AbstractCodeFromMarkdown >> numberOfExtractedCode [
 	^ extractedCodes size
@@ -70,12 +84,15 @@ AbstractCodeFromMarkdown >> processFileName: aFilename [
 
 { #category : #public }
 AbstractCodeFromMarkdown >> processText: aText [
+
 	| isInCode currentCode code |
 	isInCode := false.
 	currentCode := OrderedCollection new.
-	aText lines doWithIndex: [ :l :lineNumber |
+	aText lines doWithIndex: [ :l :lineNumber | 
+		(l beginsWith: '<!--- no execute -->') ifTrue: [ 
+			self mustNotExecuteNextSnippet ].
 		(l beginsWith: '![') ifTrue: [ context processImageInstruction: l ].
-			
+
 		"End of the code section"
 		(l = '```' and: [ isInCode ]) ifTrue: [ 
 			isInCode := false.
@@ -83,8 +100,8 @@ AbstractCodeFromMarkdown >> processText: aText [
 				        code: (String cr join: currentCode);
 				        lineNumber: lineNumber;
 				        yourself.
-			extractedCodes add: code ].
-		
+			self addExtractedCode: code ].
+
 		(l = '...' and: [ isInCode ]) ifTrue: [ 
 			currentCode := extractedCodes last code lines asOrderedCollection ].
 		isInCode ifTrue: [ currentCode add: l ].

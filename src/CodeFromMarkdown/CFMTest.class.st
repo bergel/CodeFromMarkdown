@@ -105,6 +105,47 @@ MMatrixfdsfd>>newRows: numRows columns: numColumns
 '
 ]
 
+{ #category : #examples }
+CFMTest >> exampleWithNoExecute [
+
+^ '## Class creation
+
+A class is a factory of objects, often regarded as an abstraction of objects. You need to create classes as soon as you wish to bundle logic and data together. A class belongs to a package. You may want to create a dedicated package to contain the classes you will define:
+
+1. Open a system browser from the top menu;
+1. Right click on the top left list panel (Figure @fig:secondExampleNumbers), and define a package called `TweetsAnalysis`;
+1. Create the class `Tweet`. A class is created by filling the following in a code browser:
+
+```Smalltalk
+Object subclass: #Tweet2
+		instanceVariableNames: ''''content sender date''''
+		classVariableNames: ''''''''
+		package: ''''TweetsAnalysis''''
+```
+
+
+<!--- no execute -->
+```Smalltalk
+Object subclass: #NameOfSubclass
+	instanceVariableNames: ''''
+	classVariableNames: ''''
+	package: ''TweetsAnalysis''
+```
+
+![Creating a new package](01-04-PharoInANutshell/figures/creatingPackage.png){#fig:secondExampleNumbers}
+
+The code given above is a template for class creation. The text `NameOfSubclass` has to be replaced by the name of the class you wish to create. After the keyword `instanceVariableNames:` you need to provide the instance variables, and after `classVariableNames:` the class variables. A class variable is a variable that is visible both in instance methods and class methods. Note that we will not use this concept in this book.
+
+In this small running example, we will model a tweet as an object having a content, a sender, and a date. We could therefore define the following class:
+
+```Smalltalk
+Object subclass: #Tweet
+		instanceVariableNames: ''content sender date''
+		classVariableNames: ''''
+		package: ''TweetsAnalysis''
+```'
+]
+
 { #category : #running }
 CFMTest >> setUp [
 	"Hooks that subclasses may override to define the fixture of test."
@@ -169,6 +210,18 @@ CFMTest >> testOnLargeExample2 [
 	cls := Smalltalk at: #MMatrixfdsfd.
 	self assert: (cls class >> #newFromArrays:) isCompiledMethod.
 	self assert: (cls >> #newRows:columns:) isCompiledMethod.
+]
+
+{ #category : #examples }
+CFMTest >> testWithNoExecute [
+
+
+	| c |
+	c := CodeFromMarkdownPharo new.
+	c processText: self exampleWithNoExecute.
+	self assert: c numberOfExtractedCode equals: 2.
+	self assert: c extractedCodes size equals: 2.
+	
 ]
 
 { #category : #tests }
