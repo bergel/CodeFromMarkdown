@@ -5,7 +5,7 @@ Class {
 		'windows',
 		'targetFolder'
 	],
-	#category : #CodeFromMarkdown
+	#category : #'CodeFromMarkdown-Core'
 }
 
 { #category : #asserting }

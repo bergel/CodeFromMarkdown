@@ -1,7 +1,7 @@
 Class {
 	#name : #CFMCodeJava,
 	#superclass : #CFMAbstractCode,
-	#category : #CodeFromMarkdown
+	#category : #'CodeFromMarkdown-Core'
 }
 
 { #category : #actions }

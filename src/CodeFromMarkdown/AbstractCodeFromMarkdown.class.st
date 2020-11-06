@@ -5,7 +5,7 @@ Class {
 		'extractedCodes',
 		'context'
 	],
-	#category : #CodeFromMarkdown
+	#category : #'CodeFromMarkdown-Core'
 }
 
 { #category : #public }

@@ -1,7 +1,7 @@
 Class {
 	#name : #CodeFromMarkdownPharoAgileVisualization2,
 	#superclass : #AbstractCodeFromMarkdown,
-	#category : #CodeFromMarkdown
+	#category : #'CodeFromMarkdown-Core'
 }
 
 { #category : #public }

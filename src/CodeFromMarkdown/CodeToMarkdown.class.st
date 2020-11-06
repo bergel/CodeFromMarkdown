@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'classesToExtract'
 	],
-	#category : #CodeFromMarkdown
+	#category : #'CodeFromMarkdown-Core'
 }
 
 { #category : #'public - adding' }

@@ -1,7 +1,7 @@
 Class {
 	#name : #CodeFromMarkdownJava,
 	#superclass : #AbstractCodeFromMarkdown,
-	#category : #CodeFromMarkdown
+	#category : #'CodeFromMarkdown-Core'
 }
 
 { #category : #'as yet unclassified' }

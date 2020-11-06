@@ -1,7 +1,7 @@
 Class {
 	#name : #CFMCodePharo,
 	#superclass : #CFMAbstractCode,
-	#category : #CodeFromMarkdown
+	#category : #'CodeFromMarkdown-Core'
 }
 
 { #category : #execution }

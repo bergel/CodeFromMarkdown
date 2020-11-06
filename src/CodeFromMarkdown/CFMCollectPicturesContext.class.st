@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'filenames'
 	],
-	#category : #CodeFromMarkdown
+	#category : #'CodeFromMarkdown-Core'
 }
 
 { #category : #'as yet unclassified' }

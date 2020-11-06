@@ -6,7 +6,7 @@ Class {
 		'code',
 		'context'
 	],
-	#category : #CodeFromMarkdown
+	#category : #'CodeFromMarkdown-Core'
 }
 
 { #category : #accessing }

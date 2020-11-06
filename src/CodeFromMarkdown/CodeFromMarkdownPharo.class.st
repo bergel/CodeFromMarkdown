@@ -1,7 +1,7 @@
 Class {
 	#name : #CodeFromMarkdownPharo,
 	#superclass : #AbstractCodeFromMarkdown,
-	#category : #CodeFromMarkdown
+	#category : #'CodeFromMarkdown-Core'
 }
 
 { #category : #'public - Agile Artificial Intelligence' }
