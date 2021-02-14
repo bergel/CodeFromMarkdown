@@ -32,7 +32,8 @@ CodeToMarkdown >> initialize [
 
 { #category : #private }
 CodeToMarkdown >> writeClass: cls ToMarkdownOn: stream [
-	self encloseToMarkdown: cls definition on: stream
+
+	self encloseToMarkdown: cls definitionString on: stream
 ]
 
 { #category : #private }

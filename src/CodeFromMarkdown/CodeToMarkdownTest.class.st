@@ -18,7 +18,7 @@ CodeToMarkdownTest >> test [
 Object subclass: #CFMAbstractCode
 	instanceVariableNames: ''lineNumber code context''
 	classVariableNames: ''''
-	package: ''CodeFromMarkdown''
+	package: ''CodeFromMarkdown-Core''
 ```
 
 ```Smalltalk
@@ -69,7 +69,7 @@ CFMAbstractCode>>lines
 CFMAbstractCode subclass: #CFMCodePharo
 	instanceVariableNames: ''''
 	classVariableNames: ''''
-	package: ''CodeFromMarkdown''
+	package: ''CodeFromMarkdown-Core''
 ```
 
 ```Smalltalk
