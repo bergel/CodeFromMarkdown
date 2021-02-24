@@ -5,11 +5,11 @@ Class {
 }
 
 { #category : #public }
-CodeFromMarkdownPharoAgileVisualization2 >> chapter01_04_PharoInANutshell [
-	<script: 'self new chapter01_04_PharoInANutshell'>
+CodeFromMarkdownPharoAgileVisualization2 >> chapter01_03_PharoInANutshell [
+	<script: 'self new chapter01_03_PharoInANutshell'>
 	"There is nothing in this chapter, but this is sanity check"	
 	
-	(self processFileName: '01-04-PharoInANutshell/PharoInANutshell.md') install.
+	(self processFileName: '01-03-PharoInANutshell/PharoInANutshell.md') install.
 
 ]
 
