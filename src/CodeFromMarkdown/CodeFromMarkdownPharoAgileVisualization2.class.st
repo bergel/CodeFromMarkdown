@@ -14,6 +14,15 @@ CodeFromMarkdownPharoAgileVisualization2 >> chapter01_03_PharoInANutshell [
 ]
 
 { #category : #public }
+CodeFromMarkdownPharoAgileVisualization2 >> chapter01_04_AgileVisualization [
+	<script: 'self new chapter01_04_AgileVisualization'>
+	"There is nothing in this chapter, but this is sanity check"	
+	
+	(self processFileName: '01-04-AgileVisualization/AgileVisualization.md') install.
+
+]
+
+{ #category : #public }
 CodeFromMarkdownPharoAgileVisualization2 >> codeClass [
 	^ CFMCodePharo
 ]
