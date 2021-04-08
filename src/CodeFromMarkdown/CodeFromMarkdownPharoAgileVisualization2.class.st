@@ -60,6 +60,22 @@ CodeFromMarkdownPharoAgileVisualization2 >> chapter02_01_Roassal [
 ]
 
 { #category : #public }
+CodeFromMarkdownPharoAgileVisualization2 >> chapter02_02_Canvas [
+	<script: 'self new chapter02_02_Canvas'>
+	
+	(self processFileName: '02-02-Canvas/02-02-Canvas.md') install.
+
+]
+
+{ #category : #public }
+CodeFromMarkdownPharoAgileVisualization2 >> chapter02_03_Shapes [
+	<script: 'self new chapter02_03_Shapes'>
+	
+	(self processFileName: '02-03-Shapes/02-03-Shapes.md') install.
+
+]
+
+{ #category : #public }
 CodeFromMarkdownPharoAgileVisualization2 >> codeClass [
 	^ CFMCodePharo
 ]
@@ -69,7 +85,8 @@ CodeFromMarkdownPharoAgileVisualization2 >> loadAndProduceScripts [
 	<script: 'self new loadAndProduceScripts'>
 
 	| path f |
-	path := '/Users/alexandrebergel/Desktop/ScriptAAI/'.
+	"path := '/Users/alexandrebergel/Desktop/ScriptAAI/'."
+	path := '/Users/alexandrebergel/Dropbox/GitRepos/AgileVisualizationAPressCode'.
 	f := path asFileReference.
 	f exists ifFalse: [ f createDirectory ].
 	context := CFMDoNotExecuteAndProduceScriptContext new.
@@ -78,7 +95,8 @@ CodeFromMarkdownPharoAgileVisualization2 >> loadAndProduceScripts [
 		chapter01_02_QuickStart;
 		chapter01_03_PharoInANutshell;
 		chapter01_04_AgileVisualization;
-		chapter02_01_Roassal
+		chapter02_01_Roassal;
+		chapter02_02_Canvas
 ]
 
 { #category : #public }
