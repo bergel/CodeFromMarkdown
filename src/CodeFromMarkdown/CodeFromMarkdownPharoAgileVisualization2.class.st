@@ -76,6 +76,46 @@ CodeFromMarkdownPharoAgileVisualization2 >> chapter02_03_Shapes [
 ]
 
 { #category : #public }
+CodeFromMarkdownPharoAgileVisualization2 >> chapter02_04_LineBuilder [
+	<script: 'self new chapter02_04_LineBuilder'>
+	
+	(self processFileName: '02-04-LineBuilder/02-04-LineBuilder.md') install.
+
+]
+
+{ #category : #public }
+CodeFromMarkdownPharoAgileVisualization2 >> chapter02_05_ShapeComposition [
+	<script: 'self new chapter02_05_ShapeComposition'>
+	
+	(self processFileName: '02-05-ShapeComposition/02-05-ShapeComposition.md') install.
+
+]
+
+{ #category : #public }
+CodeFromMarkdownPharoAgileVisualization2 >> chapter02_06_Normalizers [
+	<script: 'self new chapter02_06_Normalizers'>
+	
+	(self processFileName: '02-06-Normalizers/02-06-Normalizers.md') install.
+
+]
+
+{ #category : #public }
+CodeFromMarkdownPharoAgileVisualization2 >> chapter02_07_Interactions [
+	<script: 'self new chapter02_07_Interactions'>
+	
+	(self processFileName: '02-07-Interactions/02-07-Interactions.md') install.
+
+]
+
+{ #category : #public }
+CodeFromMarkdownPharoAgileVisualization2 >> chapter02_08_Layouts [
+	<script: 'self new chapter02_08_Layouts'>
+	
+	(self processFileName: '02-08-Layouts/02-08-Layouts.md') install.
+
+]
+
+{ #category : #public }
 CodeFromMarkdownPharoAgileVisualization2 >> codeClass [
 	^ CFMCodePharo
 ]
@@ -91,12 +131,26 @@ CodeFromMarkdownPharoAgileVisualization2 >> loadAndProduceScripts [
 	f exists ifFalse: [ f createDirectory ].
 	context := CFMDoNotExecuteAndProduceScriptContext new.
 	context targetFolder: f.
+	 
 	self 
 		chapter01_02_QuickStart;
 		chapter01_03_PharoInANutshell;
 		chapter01_04_AgileVisualization;
 		chapter02_01_Roassal;
-		chapter02_02_Canvas
+		chapter02_02_Canvas;
+		chapter02_03_Shapes;
+		chapter02_04_LineBuilder;
+		chapter02_05_ShapeComposition;
+		chapter02_06_Normalizers;
+		chapter02_07_Interactions;
+		chapter02_08_Layouts
+	
+
+
+
+
+
+
 ]
 
 { #category : #public }
