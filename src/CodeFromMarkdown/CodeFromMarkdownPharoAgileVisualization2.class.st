@@ -116,6 +116,14 @@ CodeFromMarkdownPharoAgileVisualization2 >> chapter02_08_Layouts [
 ]
 
 { #category : #public }
+CodeFromMarkdownPharoAgileVisualization2 >> chapter04_11_reinforcementlearning [
+	<script: 'self new chapter02_08_Layouts'>
+	
+	(self processFileName: '04-11-ReinforcementLearning/04-11-ReinforcementLearning.markdown') install.
+
+]
+
+{ #category : #public }
 CodeFromMarkdownPharoAgileVisualization2 >> codeClass [
 	^ CFMCodePharo
 ]
