@@ -137,6 +137,9 @@ CodeFromMarkdownPharoAgileVisualization2 >> loadAndProduceScripts [
 	path := '/Users/alexandrebergel/Dropbox/GitRepos/AgileVisualizationAPressCode'.
 	f := path asFileReference.
 	f exists ifFalse: [ f createDirectory ].
+	
+	(f children select: [ :fl | fl fullName endsWith: '.txt' ]) do: #delete.
+	
 	context := CFMDoNotExecuteAndProduceScriptContext new.
 	context targetFolder: f.
 	 
@@ -151,7 +154,8 @@ CodeFromMarkdownPharoAgileVisualization2 >> loadAndProduceScripts [
 		chapter02_05_ShapeComposition;
 		chapter02_06_Normalizers;
 		chapter02_07_Interactions;
-		chapter02_08_Layouts
+		chapter02_08_Layouts;
+		chapter03_02_reinforcementlearning
 	
 
 
