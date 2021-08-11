@@ -42,7 +42,6 @@ AbstractCodeFromMarkdown >> initialize [
 { #category : #actions }
 AbstractCodeFromMarkdown >> install [
 	context shouldInstallCode ifFalse: [ ^ self resetExtractedCode ].
-	
 	extractedCodes
 		do: [ :code | 
 			code context: context.

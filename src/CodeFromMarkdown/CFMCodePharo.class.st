@@ -10,7 +10,19 @@ CFMCodePharo >> install [
 
 	self lines
 		ifEmpty: [ self error: 'Cannot install empty code snippet' ].
-		
+
+	context shouldSaveScriptInFile ifTrue: [ 
+		(context targetFolder / (context processedFileName, '.txt')) writeStream
+			setToEnd;
+			lf;
+			nextPutAll: '-----------------------------';
+			lf;
+			nextString: self code;
+			lf;
+			close
+	].
+
+
 	"If this is a class definition"
 	('* subclass: #*' match: self lines first)
 		ifTrue: [ 
@@ -49,15 +61,6 @@ CFMCodePharo >> install [
 		OpalCompiler new
 			source: self code;
 			evaluate ].
-	
-	context shouldSaveScriptInFile ifTrue: [ 
-		(context targetFolder / (context processedFileName, '.txt')) writeStream
-			setToEnd;
-			lf;
-			nextPutAll: '-----------------------------';
-			lf;
-			nextPutAll: self code;
-			lf;
-			close
-	]
+
+
 ]
