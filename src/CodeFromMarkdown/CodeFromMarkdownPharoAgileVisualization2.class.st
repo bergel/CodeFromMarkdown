@@ -116,6 +116,22 @@ CodeFromMarkdownPharoAgileVisualization2 >> chapter02_08_Layouts [
 ]
 
 { #category : #public }
+CodeFromMarkdownPharoAgileVisualization2 >> chapter02_10_Inspector [
+	<script: 'self new chapter02_10_Inspector'>
+	
+	(self processFileName: '02-10-Inspector/02-10-Inspector.md') install.
+
+]
+
+{ #category : #public }
+CodeFromMarkdownPharoAgileVisualization2 >> chapter03_01_continuousDelivery [
+	<script: 'self new chapter03_01_continuousDelivery'>
+	
+	(self processFileName: '03-01-ContinuousIntegration/03-01-ContinuousIntegration.md') install.
+
+]
+
+{ #category : #public }
 CodeFromMarkdownPharoAgileVisualization2 >> chapter03_02_reinforcementlearning [
 	<script: 'self new chapter03_02_reinforcementlearning'>
 	
