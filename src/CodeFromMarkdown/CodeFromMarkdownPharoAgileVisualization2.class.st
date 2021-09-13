@@ -124,18 +124,18 @@ CodeFromMarkdownPharoAgileVisualization2 >> chapter02_10_Inspector [
 ]
 
 { #category : #public }
-CodeFromMarkdownPharoAgileVisualization2 >> chapter03_01_continuousDelivery [
-	<script: 'self new chapter03_01_continuousDelivery'>
+CodeFromMarkdownPharoAgileVisualization2 >> chapter03_01_reinforcementlearning [
+	<script: 'self new chapter03_01_reinforcementlearning'>
 	
-	(self processFileName: '03-01-ContinuousIntegration/03-01-ContinuousIntegration.md') install.
+	(self processFileName: '03-01-reinforcementlearning/03-01-ReinforcementLearning.md') install.
 
 ]
 
 { #category : #public }
-CodeFromMarkdownPharoAgileVisualization2 >> chapter03_02_reinforcementlearning [
-	<script: 'self new chapter03_02_reinforcementlearning'>
+CodeFromMarkdownPharoAgileVisualization2 >> chapter03_02_continuousDelivery [
+	<script: 'self new chapter03_02_continuousDelivery'>
 	
-	(self processFileName: '03-02-reinforcementlearning/03-02-ReinforcementLearning.md') install.
+	(self processFileName: '03-02-ContinuousIntegration/03-02-ContinuousIntegration.md') install.
 
 ]
 
@@ -171,7 +171,7 @@ CodeFromMarkdownPharoAgileVisualization2 >> loadAndProduceScripts [
 		chapter02_06_Normalizers;
 		chapter02_07_Interactions;
 		chapter02_08_Layouts;
-		chapter03_02_reinforcementlearning
+		chapter03_01_reinforcementlearning
 	
 
 
